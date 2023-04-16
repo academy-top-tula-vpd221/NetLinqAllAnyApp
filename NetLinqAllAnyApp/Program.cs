@@ -10,16 +10,27 @@ List<Employee> employees = new List<Employee>()
     new() { Name = "Ann", Age = 38 },
 };
 
-var all18 = employees.All(e => e.Age >= 20);
-Console.WriteLine($"{all18}");
+var employee30 = employees.Where(e => e.Age > 30);
 
-var any40 = employees.Any(e => e.Age >= 50);
-Console.WriteLine(any40);
+employees.Add(new() { Name = "Jim", Age = 35 });
 
-Employee employee = new() { Name = "Bob", Age = 39 };
-var cont = employees.Contains(employee, new EmployeNameAgeComparer());
-Console.WriteLine(cont);
+foreach (var e in employee30)
+    Console.WriteLine($"{e.Name} {e.Age}");
 
-var first = employees.First(e => e.Age > 50);
-if(first != null)
-    Console.WriteLine(first.Name);
+
+
+//var all18 = employees.All(e => e.Age >= 20);
+//Console.WriteLine($"{all18}");
+
+//var any40 = employees.Any(e => e.Age >= 50);
+//Console.WriteLine(any40);
+
+//Employee employee = new() { Name = "Bob", Age = 39 };
+//var cont = employees.Contains(employee, new EmployeNameAgeComparer());
+//Console.WriteLine(cont);
+
+//var first = employees.FirstOrDefault(e => e.Age > 50);
+//if(first != null)
+//    Console.WriteLine(first.Name);
+
+//var last = employees.LastOrDefault(e => e.Age > 50);
